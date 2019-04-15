@@ -1,24 +1,45 @@
-<nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a [routerLink]="['about']">About</a></li>
-        <li><a [routerLink]="['toysitems']">Tyos Items</a></li>
-        <li><a [routerLink]="['historyorder']">History Order</a></li>
-      </ul>
-    </div>
-</nav>
+<button mat-fab color="primary" (click)="routToListOrder()"  class="loct">
+  <mat-icon matBadge={{numberOfItem}} matBadgeColor="warn">shopping_cart</mat-icon>  
+</button>
 
-<div class='container'>
 
-  
-    <router-outlet></router-outlet>
-  <div>
-    <div id="container">
-      <a class="nav-link"   (click)="routToListOrder()" >
-        <img id="img1" height="50px" width="50px" src="https://res.cloudinary.com/dvd8gmxgd/image/upload/v1554316737/shopping-cart.png" >
-      </a>
-      <span class="dot" >{{itemForBuy.length}}</span>
-    </div>
-  </div>
+<mat-toolbar color="accent">
+<mat-toolbar-row>
+<div class='container-fluid'>
+<div class='row'>
+ <div class='offset-4 col-1'>
+    <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle [routerLink]="['about']">About</mat-button-toggle>
+        <mat-button-toggle [routerLink]="['toysitems']">Tyos Items</mat-button-toggle>
+        <mat-button-toggle [routerLink]="['historyorder']">History Order</mat-button-toggle>
+      </mat-button-toggle-group>
 </div>
+</div>
+</div>
+<span class="spacer"></span>
+<button mat-raised-button matTooltip="My Profile" [routerLink]="['historyorder']"  >
+<i class="material-icons">account_box</i>
+</button>
+
+</mat-toolbar-row>
+</mat-toolbar>
+
+
+
+<router-outlet></router-outlet>
+
+
+
+<!-- <div>
+<div id="container">
+<a class="nav-link"   (click)="routToListOrder()" >
+  <img id="img1" height="50px" width="50px" src="https://res.cloudinary.com/dvd8gmxgd/image/upload/v1554316737/shopping-cart.png" >
+</a>
+<span class="dot" >{{itemForBuy.length}}</span>
+</div>
+</div> -->
+
+
+<!-- <i class="material-icons">
+  delete_forever
+  </i> -->
