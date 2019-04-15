@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+
+        <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle [routerLink]="['editorder']" ><i class="material-icons">notes</i>ORDER</mat-button-toggle>
+        <mat-button-toggle [routerLink]="['items']"><i class="material-icons">local_play</i>ITEM</mat-button-toggle>
+        <mat-button-toggle [routerLink]="['users']"><i class="material-icons">supervised_user_circle</i>USERS</mat-button-toggle>
+      </mat-button-toggle-group>
+  </mat-toolbar-row>
+</mat-toolbar>
+<img class="bg img-fluid" src="./assets/Background-20.jpeg">
+  <router-outlet></router-outlet>

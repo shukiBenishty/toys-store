@@ -1,0 +1,134 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+
+        <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle (click)="login()">Login</mat-button-toggle>
+        <mat-button-toggle (click)="singin()">Singin</mat-button-toggle>
+        <mat-button-toggle >Gmail don't work</mat-button-toggle>
+        <mat-button-toggle >Vsitor</mat-button-toggle>
+        
+      </mat-button-toggle-group>
+    <span class="spacer"></span>
+
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a (click)="login()">Login</a></li>
+      <li><a (click)="singin()">Singin</a></li>
+      <li><a (click)="gmail()">gmail</a></li>
+      <li><a >Free</a></li>
+    </ul>
+  </div>
+</nav> -->
+
+
+
+
+
+
+
+<button (click)="admin()">admin</button>
+<button (click)="worker()">worker</button>
+<button (click)="client()" class='btn btn-danger'>client</button>
+
+<div class="container-fluid">
+<div class="row">
+  <!-- form Login --> 
+    <div *ngIf="flagLog">
+      <div class="col-md">
+        <!-- form singin *ngIf="flagSing" -->
+         <div  class="animated fadeIn" style="height:150px " >
+            <form (ngSubmit)="login()">
+            <div class="tr">
+              <div class="input-field col s6">
+                <input [(ngModel)]="userSign.nameSignin" name="userSign.nameSignin" type="text" class="validate">
+                <label for="last_name">Name</label>
+              </div>
+              <div class="input-field col s12">
+                <input [(ngModel)]="userSign.password" name="userSign.password"  type="password" class="validate">
+                <label for="password">Password</label>
+              </div> 
+            </div>
+            <button type="submit" class="btn btn-outline-success">Submit</button> 
+       </form>
+      </div>        
+      </div>        
+      </div>        
+        
+      
+      <!-- form Singup -->
+      <div *ngIf="flagSing">
+              <form (ngSubmit)="singup()">
+                      <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]="userLog.nameLog"  name="userLog.nameLog"  placeholder="Enter Name">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]="userLog.famely" name="userLog.famely"  placeholder="Enter Famely">
+                      </div>
+                      <div class="form-group">
+                        <input type="email" class="form-control" [(ngModel)]="userLog.email" name="userLog.email" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" [(ngModel)]="userLog.password1"  name="userLog.password1" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" [(ngModel)]="userLog.password2" name="userLog.password2" placeholder="Password Authentication">
+                      </div>
+                      <div class="form-group">
+                              <select class="form-control" [(ngModel)]="userLog.gender" name="userLog.gender">
+                                <option value=""hidden>Gender</option>
+                                <option>male</option>
+                                <option>female</option>
+                              </select>
+                            </div>
+                      <div class="form-group">
+                              <input  type=date  [(ngModel)]="userLog.date" name="userLog.date">
+                            </div>
+                        <div class="form-group">
+                              <input type="text" class="form-control" [(ngModel)]="userLog.phone" name="userLog.phone"  placeholder="Enter Phone">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" [(ngModel)]="userLog.city" name="userLog.city"  placeholder="Enter city">
+                        </div>
+                      <button type="submit" class="btn btn-outline-success">Submit</button>
+                    </form>
+              </div>
+</div>
+</div>
+
+<div id="carouselExampleFade" class="bg carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+      
+      <div class="carousel-item" data-interval="5000">
+        <img src="./assets/1.jpg" class="img-fluid d-block w-100" alt="...">
+      </div>
+      
+      <div class="carousel-item" data-interval="5000" >
+        <img src="./assets/2.jpg" class="img-fluid d-block w-100" alt="...">
+      </div>
+     
+      <div class="carousel-item active" data-interval="5000">
+        <img src="./assets/3.jpg" class="img-fluid" alt="...">
+      </div>
+    
+    </div>
+   
+  </div>
+
