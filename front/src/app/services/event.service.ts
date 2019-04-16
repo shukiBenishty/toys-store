@@ -11,7 +11,7 @@ export class EventService {
 
   ngOnInit() { }
 
-  private listBuy$ = new BehaviorSubject<any>([]);
+  private listBuy$ = new BehaviorSubject<any>(0);
   private user$ = new BehaviorSubject<any>([]);
 
   addListBuy(myChange:any) {

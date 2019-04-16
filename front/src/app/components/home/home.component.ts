@@ -61,9 +61,9 @@ export class HomeComponent implements OnInit {
     console.log('log')
     this.serchService.postLogin(this.userSign).subscribe(data=> 
     {
+      $('#login').modal('hide')
       console.log(data)
       this.eventService.addUser(data[0]);
-      $('#login').modal('hide')
       console.log(data)
       switch (data[0].type) {
         case 'meneger':
@@ -100,9 +100,7 @@ export class HomeComponent implements OnInit {
  {
   this.userSign.nameSignin='lolo'
   this.userSign.passwordSign='12346'
- 
-  // this.userSign.nameSignin='Chelsey Dietrich'
-  // this.userSign.passwordSign='12346'
+
   this.login()
   }
 

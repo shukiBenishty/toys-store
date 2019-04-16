@@ -19,13 +19,25 @@ export class ManueClientComponent implements OnInit {
 
   constructor(public eventService:EventService, public router:Router ,public serchService:SerchService) {
 
-    eventService.getListBuy().subscribe(data=>this.addItem(data))
+    eventService.getListBuy().subscribe(data=>{
+      if (data==0) {
+        this.itemForBuy=[]
+        this.numberOfItem=0
+      }
+      else
+      {
+        this.addItem(data)
+
+      }
+    })
 
     this.eventService.getUser().subscribe(result=>{this.client=result})
   
    }
 
   ngOnInit() {
+    
+
     $('.carousel').carousel()
   
   }
@@ -57,6 +69,7 @@ export class ManueClientComponent implements OnInit {
     
   routToListOrder(){
     this.router.navigate(['menu_client/list_buy'],this.itemForBuy)
+
   }
 
 
