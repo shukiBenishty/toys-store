@@ -139,6 +139,7 @@ app.post('/login', passport.authenticate('local', { failureRedirect: '/fail' }),
     res.send(req.user);
   });
 
+<<<<<<< HEAD
 // app.post('/login',(req,res)=>
 // {
 //     mongoose.model('users').find({name:req.body.nameSignin,password:req.body.passwordSign},
@@ -146,6 +147,23 @@ app.post('/login', passport.authenticate('local', { failureRedirect: '/fail' }),
 //       {
 //       res.send(user);})
 // })
+=======
+app.post('/login',(req,res)=>
+{
+  console.log(req.body)
+  // let a={name:req.body.nameSignin,password:req.body.password}
+  // console.log(a)
+  //   // mongoose.model('item').find({_id:req.body.id},function(err,result){ res.send(result)})
+
+    mongoose.model('users').find({name:req.body.nameSignin,password:req.body.passwordSign},
+      function(err,user)
+      {
+        console.log(user)
+        res.send(user);
+    })
+})
+
+>>>>>>> bdf46a6fc5be8ae4e409aed142e2d36bfc7507e7
 
 //logout יציאה
 

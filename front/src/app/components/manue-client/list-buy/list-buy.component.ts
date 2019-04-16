@@ -103,7 +103,9 @@ this.today = mm + '/' + dd + '/' + yyyy;
     }
     console.log(order)
     
-    this.serchService.addOrder(order).subscribe(data=>{this.listBuy=[]})
+    this.listBuy=[];
+    this.serchService.addOrder(order).subscribe()
+    this.eventService.addListBuy(0);
   }
 
 }
