@@ -124,28 +124,26 @@ app.post('/sign',(req,res)=>
   new users(user).save().then(data=> console.log(data))
 })
 
-///login התחברות
-
-// app.post('/aoth/google',passport.authenticate('google',
-// {scope:['profile']
-
-
-// }))
 
 
 
 
 app.post('/login',(req,res)=>
 {
-    
+  console.log(req.body)
+  let a={name:req.body.nameSignin,password:req.body.password}
+  console.log(a)
+    // mongoose.model('item').find({_id:req.body.id},function(err,result){ res.send(result)})
 
-    mongoose.model('users').find({name:req.body.nameSignin,password:req.body.passwordSign},
+    mongoose.model('users').find({name:req.body.nameSignin,password:req.body.password},
       function(err,user)
       {
-      res.send(user);})
+        console.log(user)
+        res.send(user);
+    })
 })
 
-//logout יציאה
+
 
 
 

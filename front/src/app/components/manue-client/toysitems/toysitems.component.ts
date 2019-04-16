@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter,ViewChild, AfterViewInit  } from '@angular/core';
+import {SerchService} from '../../../services/serch.service'
+import {EventService} from '../../../services/event.service'
 import {ToysComponent} from './toys/toys.component'
 import {Router} from '@angular/router'
 
@@ -11,12 +13,15 @@ export class ToysitemsComponent implements OnInit  {
   
 
   message:string;
+  listOfItem:any;
 
 
-  constructor(public router:Router) { }
+  constructor(public router:Router,public serchService:SerchService,public eventService:EventService) {
 
-  ngOnInit() {
-  }
+    this.serchService.getAllItems().subscribe(result=>{this.listOfItem=result})
+   }
+
+  ngOnInit() {}
 
   getItemCtegory(ctegory)
   {
@@ -28,6 +33,13 @@ export class ToysitemsComponent implements OnInit  {
    this.message= $event
   }
 
-  }
+  addToBuy(item:string) {
+    this.eventService.addListBuy(item) 
+}
+
+
+
+
+ }
 
 

@@ -10,17 +10,22 @@ import {EventService} from '../../../services/event.service'
 export class HistoryOrderComponent implements OnInit {
 
   listOrder:any;
-  clientId:String;
+  client={_id:'',name:'',family:'',email:'',city:'',password:'',}
 
   constructor(public serchService:SerchService,public eventService:EventService) { }
 
   ngOnInit() {
     this.eventService.getUser().subscribe(result=>{
-      console.log(result[0]._id)
-      this.serchService.getOrderByClient(result[0]._id).subscribe((result=>{
-        this.listOrder=result
-      }))
+      this.serchService.getByIdUser(result[0]._id).subscribe(client=>{
+        this.client=client[0]
+      } )
+      this.serchService.getOrderByClient(result[0]._id).subscribe((order=>this.listOrder=order))
     })
+  }
+
+  upClint()
+  {
+    this.serchService.putUpdateUser(this.client).subscribe()
   }
 
 }

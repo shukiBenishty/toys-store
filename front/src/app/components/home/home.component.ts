@@ -38,17 +38,13 @@ export class HomeComponent implements OnInit {
   userSign={nameSignin :'',passwordSign:''}
    
   //value input log in
-  userLog={nameLog:'',famely:'',email:'',password1:'',password2:'',gender:'',date: '',city:'',phone:''}
+  userLog={nameLog:'',famely:'',email:'',password:'',password2:'',gender:'',date: '',city:'',phone:''}
 
 
 
   constructor(public eventService:EventService, private renderer: Renderer2,public serchService:SerchService,public router:Router) 
     {
-    // this.renderer.setStyle(document.body, 'margin', 0);
-   
-  
-    this.flagLog=false;
-    this.flagSing=false;
+ 
 
    }
 
@@ -59,24 +55,15 @@ export class HomeComponent implements OnInit {
   
 
     
-  
-  login()
-  {
-    this.flagLog=true;
-    this.flagSing=false;
-  }
-  singin()
-  {
-    this.flagLog=false;
-    this.flagSing=true;
-  }
 
-  posrSing()
+  login()
   { 
+    console.log('log')
     this.serchService.postLogin(this.userSign).subscribe(data=> 
     {
+      $('#login').modal('hide')
       console.log(data)
-      switch (data[0].tyap) {
+      switch (data[0].type) {
         case 'meneger':
         this.router.navigate(['menu'])  
           break;
@@ -129,14 +116,12 @@ export class HomeComponent implements OnInit {
 
 
 
-  posLog(){
-  { this.serchService.postLog(this.userLog).subscribe(data=> console.log(data)); }}
+  posSingUp(){
+  { this.serchService.postLog(this.userLog).subscribe(data=> console.log(data));
+    $('#singin').modal('hide')
+  }}
 
-  flogin(){
-    window.open('http://localhost:5000/auth/google',"mywindow","location=1,status=1,scrollbars=1, width=800,height=800");
-   let listener = window.addEventListener('message', (message) => {
-    console.log(message)
-   })};
+ 
 
 
 

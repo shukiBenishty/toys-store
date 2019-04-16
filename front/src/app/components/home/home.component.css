@@ -15,5 +15,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* background-image: url(../../../assets/Background-20.jpeg) */
+}
+
+.cont {
+  background-color: aliceblue;
+  border-radius: 20px;
+  width: 500px;
+  height: 400px;
+}
+
+/* resize images */
+.cont form {
+  width: 100%;
+  height: auto;
 }

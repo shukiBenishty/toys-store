@@ -1,8 +1,135 @@
-<div class='container-fluid'>
-  <div class="row mt-5">
 
-<div class='col-6'>
+<button mat-fab color="warn" data-toggle="modal" data-target="#add_item" class="loct"><i class="material-icons">
+    add_circle_outline
+    </i></button>
 
+
+<div class="modal fade" id="add_item" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add Item</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+            <div class='row justify-content-center'>
+              
+                <div class='col-5'>
+                    <div  class="im">
+                      <img   id="imgup" class="img-fluid" >
+                      <input type="file" id="file-upload" (change)="createFormData($event)">
+                    </div>
+                  </div>
+                  
+                  <div class="col-1">
+                    <button mat-fab color="primary">  
+                      <label for="file-upload" ><i class="material-icons">note_add</i></label>
+                    </button>
+                  </div>
+                </div>
+                
+
+<!-- s///////////////////////////// -->
+        <form (ngSubmit)="f.form.valid &&  addItem()" name="add" #f="ngForm" novalidate >
+          <div class='container-fluid'>
+
+          
+            
+            <div class='row'>
+              
+              <div class='col-6'>
+                <mat-form-field appearance="outline">
+                  <mat-label>Name of Item</mat-label>
+                  <input id="name" type="text" matInput placeholder="Enter Name"name="item.name" [(ngModel)]="item.name"  #name="ngModel"
+                  [ngClass]="{'is-invalid': f.submitted && name.invalid}" required>
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+              </div>
+
+              <div class='col-6'>
+                  
+                  <mat-form-field appearance="outline">
+                    <mat-label>Quantity of Item</mat-label>
+                    <input type="number" matInput placeholder="Quantity" [(ngModel)]="item.quantity" name="item.quantity" #qunt="ngModel"
+                    [ngClass]="{'is-invalid': f.submitted && qunt.invalid}" required>
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  </mat-form-field>
+                  
+                </div>
+            </div>
+              
+              
+              <div class='row'>
+               
+                
+                <div class='col-6'>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Price of Item</mat-label>
+                    <input type="number" matInput placeholder="Price" [(ngModel)]="item.price" name="item.price" #price="ngModel"
+                    [ngClass]="{'is-invalid': f.submitted && price.invalid}" required>
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Select Category</label>
+                      <select  class="form-control" [(ngModel)]="item.category" name="item.category" #ctg="ngModel"
+                      [ngClass]="{'is-invalid': f.submitted && ctg.invalid}" required>
+                        <option *ngFor="let ctg of category">{{ctg}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+
+                
+
+              </div>
+            
+          
+          
+          <div class="row justify-content-center">
+              <div class="col-6">
+                  <mat-form-field>
+                    <textarea matInput rows="6" s placeholder="Description" [(ngModel)]="item.description" name="item.description"
+                    #descr="ngModel" [ngClass]="{'is-invalid': f.submitted && descr.invalid}" required></textarea>
+                  </mat-form-field>
+                </div>
+
+            
+              </div>
+
+              <div class="row justify-content-center">
+                <button  type="submit" class="btn btn-primary">  Add  </button>
+              </div>
+
+            <!-- continer -->
+          </div>
+        </form>       
+          <!-- body -->
+        </div>
+      </div>
+    </div>
+<!-- model -->
+  </div>
+  
+
+
+  
+  
+  
+  
+  
+        <div class='container-fluid'>
+          <div class="row mt-5">
+            
+                         
+            
+            <div class='col-6'>
+              
   <div class="row justify-content-center">
 
     <div *ngFor="let item of items; let i = index">

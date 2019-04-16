@@ -1,17 +1,18 @@
-<button mat-fab color="primary" (click)="routToListOrder()"  class="loct">
-  <mat-icon matBadge={{numberOfItem}} matBadgeColor="warn">shopping_cart</mat-icon>  
-</button>
 
 
 <mat-toolbar color="accent">
 <mat-toolbar-row>
 <div class='container-fluid'>
 <div class='row'>
- <div class='offset-4 col-1'>
+<div class="col-1">
+    <button mat-fab color="primary" (click)="routToListOrder()"  >
+        <mat-icon matBadge={{numberOfItem}} matBadgeColor="warn">shopping_cart</mat-icon>  
+      </button>      
+</div>
+ <div class='offset-3 col-1 mt-1'>
     <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
         <mat-button-toggle [routerLink]="['about']">About</mat-button-toggle>
         <mat-button-toggle [routerLink]="['toysitems']">Tyos Items</mat-button-toggle>
-        <mat-button-toggle [routerLink]="['historyorder']">History Order</mat-button-toggle>
       </mat-button-toggle-group>
 </div>
 </div>
@@ -26,20 +27,25 @@
 
 
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
 
 
-<!-- <div>
-<div id="container">
-<a class="nav-link"   (click)="routToListOrder()" >
-  <img id="img1" height="50px" width="50px" src="https://res.cloudinary.com/dvd8gmxgd/image/upload/v1554316737/shopping-cart.png" >
-</a>
-<span class="dot" >{{itemForBuy.length}}</span>
-</div>
-</div> -->
-
-
-<!-- <i class="material-icons">
-  delete_forever
-  </i> -->
+  <div id="carouselExampleFade" class="bg carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+        
+        <div class="carousel-item" data-interval="10000">
+          <img src="./assets/1f.jpg" class="img-fluid d-block w-100" alt="...">
+        </div>
+        
+        <div class="carousel-item" data-interval="10000" >
+          <img src="./assets/2f.png" class="img-fluid d-block w-100" alt="...">
+        </div>
+       
+        <div class="carousel-item active" data-interval="10000">
+          <img src="./assets/3f.jpg" class="img-fluid" alt="...">
+        </div>
+      
+      </div>
+     
+    </div>

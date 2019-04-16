@@ -1,0 +1,24 @@
+.cent{
+    position: fixed;
+    right: 40%;
+}
+
+.cont {
+    width: 100px;
+    height: 100px;
+}
+
+/* resize images */
+.cont img {
+    width: 100%;
+    height: auto;
+}
+
+.fon{
+    font-size: 20;
+}
+
+.pso{
+    position: relative;
+    right: 0;
+}
