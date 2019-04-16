@@ -43,6 +43,14 @@ let secret = 'chat-plugin secret';
 var app = express();
 
 
+cloudinary.config({ 
+  cloud_name: 'dvd8gmxgd', 
+  api_key: '179979221292518', 
+  api_secret: 'I0RHqeGogJVdiwjJTDE5fd3Z2h0' 
+});
+
+
+
 // app.use(bodyParser())
 app.use(bodyParser.json());
 app.use(express_fileupload());
@@ -138,51 +146,6 @@ app.post('/login', passport.authenticate('local', { failureRedirect: '/fail' }),
     
     res.send(req.user);
   });
-
-// app.post('/login',(req,res)=>
-// {
-//     mongoose.model('users').find({name:req.body.nameSignin,password:req.body.passwordSign},
-//       function(err,user)
-//       {
-//       res.send(user);})
-// })
-
-//logout יציאה
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // catch 404 and forward to error handlerng 
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
-
-// // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-//   // render the error page
-//   res.status(err.status || 500);
-//  // res.render('error');
-// });
-
-// var port ='5000'|process.env.PORT
-// app.listen(5000,()=>
-// {
-//   console.log(`Runing on port ${port} ...`)
-// })
 
 var httpServer = http.createServer(app);
 server.installSubscriptionHandlers(httpServer);

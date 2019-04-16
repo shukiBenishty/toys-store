@@ -1,8 +1,13 @@
 var express = require('express');
 var mongoose =require('mongoose');
 var router = express.Router();
+var cloudinary = require('cloudinary');
 
-
+cloudinary.config({ 
+  cloud_name: 'dvd8gmxgd', 
+  api_key: '179979221292518', 
+  api_secret: 'I0RHqeGogJVdiwjJTDE5fd3Z2h0' 
+});
 
 
 router.get('/all_items',(req,res)=>
