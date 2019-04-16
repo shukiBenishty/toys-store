@@ -15,12 +15,12 @@ export class HistoryOrderComponent implements OnInit {
   constructor(public serchService:SerchService,public eventService:EventService) { }
 
   ngOnInit() {
-    this.eventService.getUser().subscribe(result=>{
-      this.serchService.getByIdUser(result[0]._id).subscribe(client=>{
-        this.client=client[0]
+    this.eventService.getUser().subscribe(result=>{this.client=result;
+     console.log(this.client)
+      this.serchService.getOrderByClient(this.client._id).subscribe(order=>this.listOrder=order)
       } )
-      this.serchService.getOrderByClient(result[0]._id).subscribe((order=>this.listOrder=order))
-    })
+
+     
   }
 
   upClint()

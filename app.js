@@ -39,7 +39,7 @@ require('./models/item');
 require('./models/order');
 
 // view engine setup
-let secret = 'shopToys'
+let secret = 'chat-plugin secret';
 var app = express();
 
 
@@ -96,8 +96,8 @@ app.use('/order', order);
 app.use('/chat', graphql(
   `http://localhost:5000/chat/graphql`,
   `ws://localhost:5000/graphql`,
-  `mongodb://localhost/chat-plugin`,
-  `mongodb://localhost/chat-plugin`
+  `mongodb://localhost/DB_shop`,
+  `mongodb://localhost/DB_shop`
 ));
 
 
