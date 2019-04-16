@@ -50,7 +50,7 @@ passport.use(
 
 passport.use(new LocalStrategy({
     usernameField: 'nameSignin',
-    passwordField: 'password',
+    passwordField: 'passwordSign',
     session: true
   },
   function(username, password, done) {

@@ -27,7 +27,11 @@ export class ManueClientComponent implements OnInit {
 
   ngOnInit() {
     $('.carousel').carousel()
-  
+    $.ajax({
+      url: 'http://localhost:5000/chat/public/bundle.js',
+      dataType: "script",
+      success: () => {}
+    });  
   }
 
   addItem(additem)

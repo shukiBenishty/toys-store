@@ -62,10 +62,10 @@ export class HomeComponent implements OnInit {
     this.serchService.postLogin(this.userSign).subscribe(data=> 
     {
       console.log(data)
-      this.eventService.addUser(data[0]);
+      this.eventService.addUser(data);
       $('#login').modal('hide')
       console.log(data)
-      switch (data[0].type) {
+      switch (data["type"]) {
         case 'meneger':
         this.router.navigate(['menu'])  
           break;

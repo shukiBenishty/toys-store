@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import ParticlesjsConfig from '../../../assets/particlesjs-config.json' 
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-manu-worker',
@@ -16,6 +17,11 @@ export class ManuWorkerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $.ajax({
+      url: 'http://localhost:5000/chat/public/bundle.js',
+      dataType: "script",
+      success: () => {}
+    });  
 }
 }
   
