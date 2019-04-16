@@ -1,24 +1,140 @@
-<ul>
-  <li *ngFor="let order of listOrder; let i = index">
-        <ul>
-          <div class="row">
+
+
+  
+  <div class='row  justify-content-center mt-5'>
+    
+    <div class='col-5 '>
+    
+
+      <div class='row'>
+      <div class='offset-2 col'>
+
+      <form (ngSubmit)="f.form.valid &&  upClint()" name="upClint" #f="ngForm" novalidate >
+          
+          <div class='row'> 
             
-            <div class="col s12 m5">
-              <div class="card-panel teal">
-                <span class="white-text">
+            <!-- name -->
+            <div class='col-lg-6 col-sm'>
+              <mat-form-field appearance="outline">
+                <mat-label>Name of Client</mat-label>
+                <input id="name" type="text" matInput placeholder="Enter Name" name="client.name" [(ngModel)]="client.name"  #name="ngModel"
+                [ngClass]="{'is-invalid': f.submitted && name.invalid}" required>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              </mat-form-field>
+            </div>
+            
+            <!-- family -->
+            <div class='col-lg-6 col-sm'>
+              <mat-form-field appearance="outline">
+                <mat-label>Family of Client</mat-label>
+                <input id="family" type="text" matInput placeholder="Enter Name" name="client.family" [(ngModel)]="client.family"  #family="ngModel"
+                [ngClass]="{'is-invalid': f.submitted && family.invalid}" required>
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <div class="row">
+              <!-- email -->
+              <div class="col-lg-6 col-sm">
+                <mat-form-field appearance="outline">
+                      <mat-label>Email of Client</mat-label>
+                      <input id="email" type='email' matInput placeholder="Enter Email" name="client.email" [(ngModel)]="client.email"  #email="ngModel"
+                      [ngClass]="{'is-invalid': f.submitted && email.invalid}" required>
+                      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                  </div>
+                  
+                  <!--city  -->
+                  <div class='col-lg-6 col-sm'>
+                    <mat-form-field appearance="outline">
+                      <mat-label>City of Client</mat-label>
+                      <input id="city" type="text" matInput placeholder="Enter City" name="client.city" [(ngModel)]="client.city"  #city="ngModel"
+                      [ngClass]="{'is-invalid': f.submitted && city.invalid}" required>
+                      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  
+                  <!-- password -->
+                  <div class='col-6'>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input id="password" type="text" matInput placeholder="Enter Password" name="client.password" [(ngModel)]="client.password"  #password="ngModel"
+                        [ngClass]="{'is-invalid': f.submitted && password.invalid}" required>
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  
+                  
+                  
+                  <button type="submit" mat-fab color="primary">Updeta</button>
+                </form> 
+              </div>
+              </div>
+      </div>
+      
+      
+      <div class='col-6'>
+
+        <div class="row">
+          <div class=" offset-3 col">
+      <div *ngFor="let order of listOrder; let i = index">
+        
+      <div class="card border-secondary mb-3" style="max-width: 18rem;">
+          <div class="card-header">{{i+1}} ORDER</div>
+          
+          <div class="card-body text-secondary">
+            <!-- cotert -->
+            <h5 class="card-title">{{order.date.slice(0,10)}}</h5>
+            
+            <div *ngFor="let item of order.items; let i = index">
+                <p class="card-text">
+                  <span>{{item.item.name}}</span>
+                  <span>{{item.item.price}} x {{item.qut}}=</span>
+                  <span>{{item.item.price * item.qut}}</span>
+                </p>
+          </div>
+         total: {{order.totatToBuy}}
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+  
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  <li *ngFor="let order of listOrder; let i = index">
                   <li *ngFor="let item of order.items; let i = index">
                           <h6>{{item.item.name}}</h6>
                           <p>{{item.item.price}} x {{item.qut}}={{item.item.price * item.qut}} </p>
-                  </li>
-                </span>
-                </div>
-              </div>
-          </div>
-        </ul>    
-  </li>
-</ul>
 
-  
+   -->
 
 
 

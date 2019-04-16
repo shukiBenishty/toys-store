@@ -24,13 +24,13 @@ export class ListBuyComponent implements OnInit {
     
     
     this.listBuy= this.router.getCurrentNavigation().extras
-    if (this.listBuy!) {
-      console.log('empty')
-      
-    }
+    
+    console.log(this.listBuy)
     this.sum()
-    this.eventService.getUser().subscribe(result=>this.client=result[0])
-    console.log(this.client)
+    this.eventService.getUser().subscribe(result=>{this.client=result[0]
+      console.log(this.client)
+    
+    })
   }  
   
   

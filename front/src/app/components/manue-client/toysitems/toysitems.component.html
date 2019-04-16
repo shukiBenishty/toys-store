@@ -1,11 +1,167 @@
 <div class='container-fluid'>
   <div class='row'>
-    <button class='btn btn-dark' (click)='getItemCtegory("girls")'>Girls</button>
-    <button class='btn btn-danger' (click)='getItemCtegory("boys")'>Boys</button>
-    <h1>{{id}} </h1>
+  
+  
+    <div class='col-8'>
+  
+      <mat-tab-group  Color color="primary">
+        <mat-tab label="All"> 
+          <div *ngIf="listOfItem">
+            
+            <div class="card-group">
+              
+              <div *ngFor="let item of listOfItem">
+                  <div class="card pt-2 m-2">
+                      <a class="nav-link" [routerLink]="[item._id]">
+  
+                        <div class="cont">
+                          <img class="card-img-top " src={{item.url}} alt="Card image cap">
+                        </div>
+                        
+                      </a>
+                        <div class="card-body mt-5">
+                          <h5 class="card-title pt-2">{{item.name}}</h5>
+                          
+                          <p class="card-text">
+                            Price: {{item.price}} 
+                          </p>
+                        </div>
+                        
+                        <!-- add -->
+                        <p class="card-text">
+                            <button mat-mini-fab color="primary" (click)="addToBuy(item)">
+                                <i class="material-icons">add_shopping_cart</i></button>
+                        </p>
+                      </div>  
+                      </div>  
+                  </div>
+                </div>    
+            </mat-tab>
+            
+            <mat-tab label="Girls">
+                <div *ngIf="listOfItem">
+            
+                    <div class="card-group">
+                      
+                      <div *ngFor="let item of listOfItem|fitem:'girls'">
+                          <div class="card pt-2 m-2">
+                              <a class="nav-link" [routerLink]="[item._id]">
+          
+                                <div class="cont">
+                                  <img class="card-img-top " src={{item.url}} alt="Card image cap">
+                                </div>
+                                
+                              </a>
+                                <div class="card-body mt-5">
+                                  <h5 class="card-title pt-2">{{item.name}}</h5>
+                                  
+                                  <p class="card-text">
+                                    Price: {{item.price}} 
+                                  </p>
+                                </div>
+                                
+                                <!-- add -->
+                                <p class="card-text">
+                                    <button mat-mini-fab color="primary" (click)="addToBuy(item)">
+                                        <i class="material-icons">add_shopping_cart</i></button>
+                                </p>
+                              </div>  
+                              </div>  
+                          </div>
+                        </div>    
+              
+              
+            </mat-tab>
+            <mat-tab label="Boys"> 
+                <div *ngIf="listOfItem">
+            
+                    <div class="card-group">
+                      
+                      <div *ngFor="let item of listOfItem|fitem:'boys'">
+                          <div class="card pt-2 m-2">
+                              <a class="nav-link" [routerLink]="[item._id]">
+          
+                                <div class="cont">
+                                  <img class="card-img-top " src={{item.url}} alt="Card image cap">
+                                </div>
+                                
+                              </a>
+                                <div class="card-body mt-5">
+                                  <h5 class="card-title pt-2">{{item.name}}</h5>
+                                  
+                                  <p class="card-text">
+                                    Price: {{item.price}} 
+                                  </p>
+                                </div>
+                                
+                                <!-- add -->
+                                <p class="card-text">
+                                    <button mat-mini-fab color="primary" (click)="addToBuy(item)">
+                                        <i class="material-icons">add_shopping_cart</i></button>
+                                </p>
+                              </div>  
+                              </div>  
+                          </div>
+                        </div>   
+              
+            </mat-tab>
+          </mat-tab-group>
+          
+          
+          
+          
+        </div>
+  <div class='col-3'>
+    <router-outlet></router-outlet>
+  
   </div>
-
-  <div class='row'>
-      <router-outlet></router-outlet>
-    </div>
-</div>
+     
+      </div>
+      </div>
+  
+  
+  
+      
+                    <!-- <div class="card-body">
+  
+                   
+                      
+                      <button mat-mini-fab color="primary" (click)="addToBuy(item)">
+                        <i class="material-icons">add_shopping_cart</i></button>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        
+                      </div> -->
+      
+      
+      
+      <!-- <div class='container-fluid'> -->
+        
+        
+      <!-- <div class='row'> -->
+      <!-- </div> -->
+    <!-- </div> -->
+    <!-- <div *ngFor="let item of listOfItem|fitem:'boys'" > -->
+                  <!-- <div class="card">
+                  
+                  <a class="nav-link" [routerLink]="[item._id]">
+                  
+                    <div class="card-image">
+                    <img src={{item.url}}>
+                    <span class="card-title">{{item.name}}</span>
+                  </div>
+                  
+                  <div class="card-content">
+                    <p>Price: {{item.price}}</p>
+                  </div>
+                </a>
+                
+                <div class="card-action">
+                  <a (click)="addToBuy(item)">add</a>
+                </div>
+              </div> -->
+  
+               <!-- <div class='row'>
+      <button class='btn btn-dark' (click)='getItemCtegory("girls")'>Girls</button>
+      <button class='btn btn-danger' (click)='getItemCtegory("boys")'>Boys</button>
+      <h1>{{id}} </h1>
+    </div> -->

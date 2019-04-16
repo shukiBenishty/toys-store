@@ -1,44 +1,45 @@
-<div class='container-fluid'>
-  <div class="row">
+<div class='container'>
+  <div class="row justify-content-center">
+    <div class="col-5">
 
-  <div class="collection">
-    <div *ngFor="let items of listBuy; let i = index" class="collection-item" >
-      
-      <p>{{items.item.price}} x {{items.qut}}={{items.item.price * items.qut}} </p>
-      <button (click)="delet(items.item._id)" class='btn btn-primary'>Delet</button>  
-      <button (click)="plus(items.item._id)" class='btn btn-primary'>+</button>  
-      <button (click)="minus(items.item._id)" class='btn btn-primary'>-</button>  
-    </div>
-  </div>
-</div>
-<div class="row">
-  <h5>Total Order: {{totalPrice}}</h5>
-</div>
+      <mat-accordion>
+        <div *ngFor="let items of listBuy; let i = index">
+          
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{items.item.name}}
+                  </mat-panel-title>
 
-
-
-
-
-
-    <!-- <ul>
-      <li *ngFor="let items of listBuy; let i = index">
-        
-        <div class="card">
-          <div class="card-body">
-            {{i}}          
-            <div class="image">
-              <img src={{items.item.url}} alt="" style="position: relative; width: 100%;" />
-              <h2>{{items.item.name}} 
-                <br />{{items.item.price}}</h2>
-                <h2>{{items.item.price}} x {{items.qut}}={{items.item.price * items.qut}} </h2>
-                <button (click)="delet(items.item._id)" class='btn btn-primary'>Delet</button>  
-                <button (click)="plus(items.item._id)" class='btn btn-primary'>+</button>  
-                <button (click)="minus(items.item._id)" class='btn btn-primary'>-</button>  
+              <mat-panel-description class="cent">
+                {{items.item.price * items.qut}}
+              </mat-panel-description>
+            
+            </mat-expansion-panel-header>
+            <div class="cont">
+                          <img class="card-img-top " src={{items.item.url}} alt="Card image cap">
               </div>
-            </div>
-          </div>
-        </li>
-      </ul>
+              <button mat-button (click)="delet(items.item._id)"><i class="material-icons">clear</i></button>
+              <button mat-button (click)="plus(items.item._id)"><i class="material-icons">add</i></button>
+              <button mat-button (click)="minus(items.item._id)"><i class="material-icons">remove</i></button>
+
+              <span class="ml-3 mr-3 ">{{items.item.price}}<i class="material-icons ico">attach_money</i></span> 
+              <span class="mr-3">{{items.qut}} <i class="material-icons ico">filter_none</i></span>
+            
+              
+          </mat-expansion-panel>
+        </div>
+        
+        <mat-list-item class="pso">Total Order: {{totalPrice}}</mat-list-item>
+        <mat-divider></mat-divider>
+        
+      </mat-accordion>
     </div>
-  </div> -->
-      <button (click)="orderBuy()" class='btn btn-primary'>Buy</button>  
+</div>
+<div class="row justify-content-center">
+<div class="col-2">
+  <button (click)="orderBuy()" class='btn btn-primary'>Buy</button>
+</div>
+</div>
+  
+    </div> 

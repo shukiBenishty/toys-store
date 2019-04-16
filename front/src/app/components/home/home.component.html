@@ -1,44 +1,19 @@
+
+
 <mat-toolbar color="primary">
     <mat-toolbar-row>
 
         <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
-        <mat-button-toggle (click)="login()">Login</mat-button-toggle>
-        <mat-button-toggle (click)="singin()">Singin</mat-button-toggle>
-        <mat-button-toggle (click)="gmail()">Gmail</mat-button-toggle>
+        <mat-button-toggle data-toggle="modal" data-target="#login" >Login</mat-button-toggle>
+        <mat-button-toggle data-toggle="modal" data-target="#singin">Singin</mat-button-toggle>
+        <mat-button-toggle >Gmail don't work</mat-button-toggle>
         <mat-button-toggle >Vsitor</mat-button-toggle>
         
       </mat-button-toggle-group>
     <span class="spacer"></span>
 
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
   </mat-toolbar-row>
 </mat-toolbar>
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<nav>
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
-    <ul class="right hide-on-med-and-down">
-      <li><a (click)="login()">Login</a></li>
-      <li><a (click)="singin()">Singin</a></li>
-      <li><a (click)="gmail()">gmail</a></li>
-      <li><a >Free</a></li>
-    </ul>
-  </div>
-</nav> -->
-
-
 
 
 
@@ -48,70 +23,189 @@
 <button (click)="worker()">worker</button>
 <button (click)="client()" class='btn btn-danger'>client</button>
 
-<div class="container-fluid">
-<div class="row">
-  <!-- form Login --> 
-    <div *ngIf="flagLog">
-      <div class="col-md">
-        <!-- form singin *ngIf="flagSing" -->
-         <div  class="animated fadeIn" style="height:150px " >
-            <form (ngSubmit)="login()">
-            <div class="tr">
-              <div class="input-field col s6">
-                <input [(ngModel)]="userSign.nameSignin" name="userSign.nameSignin" type="text" class="validate">
-                <label for="last_name">Name</label>
+
+  <!-- Modal -->
+  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sing in</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            <form (ngSubmit)="f1.form.valid && login()" name="login" #f1="ngForm" novalidate>
+             <div class="row justify-content-">
+             
+              <div class="col-6">
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Enter Name</mat-label>
+                  <input [(ngModel)]="userSign.nameSignin" name="userSign.nameSignin" type="text" matInput placeholder="Name"
+                  #name="ngModel" [ngClass]="{'is-invalid': f.submitted && name.invalid}" required>
+                </mat-form-field>
               </div>
-              <div class="input-field col s12">
-                <input [(ngModel)]="userSign.password" name="userSign.password"  type="password" class="validate">
-                <label for="password">Password</label>
-              </div> 
+             
+              <div class="col-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Enter Password</mat-label>
+                  <input [(ngModel)]="userSign.password" name="userSign.password"  type="password" matInput placeholder="Password"
+                  #password="ngModel" [ngClass]="{'is-invalid': f.submitted && password.invalid}" required>
+                </mat-form-field>
+              </div>
+             
             </div>
-            <button type="submit" class="btn btn-outline-success">Submit</button> 
-       </form>
-      </div>        
-      </div>        
-      </div>        
-        
-      
-      <!-- form Singup -->
-      <div *ngIf="flagSing">
-              <form (ngSubmit)="singup()">
-                      <div class="form-group">
-                        <input type="text" class="form-control" [(ngModel)]="userLog.nameLog"  name="userLog.nameLog"  placeholder="Enter Name">
-                      </div>
-                      <div class="form-group">
-                        <input type="text" class="form-control" [(ngModel)]="userLog.famely" name="userLog.famely"  placeholder="Enter Famely">
-                      </div>
-                      <div class="form-group">
-                        <input type="email" class="form-control" [(ngModel)]="userLog.email" name="userLog.email" placeholder="Enter email">
-                      </div>
-                      <div class="form-group">
-                        <input type="password" class="form-control" [(ngModel)]="userLog.password1"  name="userLog.password1" placeholder="Password">
-                      </div>
-                      <div class="form-group">
-                        <input type="password" class="form-control" [(ngModel)]="userLog.password2" name="userLog.password2" placeholder="Password Authentication">
-                      </div>
-                      <div class="form-group">
-                              <select class="form-control" [(ngModel)]="userLog.gender" name="userLog.gender">
-                                <option value=""hidden>Gender</option>
-                                <option>male</option>
-                                <option>female</option>
-                              </select>
-                            </div>
-                      <div class="form-group">
-                              <input  type=date  [(ngModel)]="userLog.date" name="userLog.date">
-                            </div>
-                        <div class="form-group">
-                              <input type="text" class="form-control" [(ngModel)]="userLog.phone" name="userLog.phone"  placeholder="Enter Phone">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" class="form-control" [(ngModel)]="userLog.city" name="userLog.city"  placeholder="Enter city">
-                        </div>
-                      <button type="submit" class="btn btn-outline-success">Submit</button>
-                    </form>
+                
+                <div class="row justify-content-center">
+                  <div class="col-2">
+                    <button type="submit" mat-button color="primary">Submit</button> 
+
+                  </div>
+
+                </div>
+  
+         </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="singin" tabindex="-1" role="dialog" aria-labelledby="singin" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Sing in</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            <form (ngSubmit)="f.form.valid && posSingUp()"  name="singin" #f="ngForm">
+
+
+
+                <div class="row justify-content-">
+                  
+                  <div class="col-6">  
+                    <mat-form-field appearance="outline">
+                      <mat-label>Enter Name</mat-label>
+                      <input [(ngModel)]="userLog.nameLog"  name="userLog.nameLog" type="text" matInput placeholder="Name"
+                      #name="ngModel" [ngClass]="{'is-invalid': f.submitted && name.invalid}" required>
+                    </mat-form-field>
+                  </div>
+                 
+                  <div class="col-6">
+
+                    <mat-form-field appearance="outline">
+                      <mat-label>Enter Famely</mat-label>
+                      <input [(ngModel)]="userLog.famely"  name="userLog.famely" type="text" matInput placeholder="Famely"
+                      #famely="ngModel" [ngClass]="{'is-invalid': f.submitted && famely.invalid}" required>
+                    </mat-form-field>
+                  </div>
+                 </div>
+
+
+                <div class="row justify-content">
+
+                  <div class="col-6">
+
+                    <mat-form-field appearance="outline">
+                      <mat-label>Enter Family</mat-label>
+                      <input [(ngModel)]="userLog.famely" name="userLog.famely"   type="text" matInput placeholder="Famely"
+                      #family="ngModel" [ngClass]="{'is-invalid': f.submitted && family.invalid}" required>
+                    </mat-form-field>
+                  </div>
+                <div class="col-6">
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Enter Email</mat-label>
+                    <input type="email" [(ngModel)]="userLog.email" name="userLog.email" matInput placeholder="Enter email"
+                    #email="ngModel" [ngClass]="{'is-invalid': f.submitted && email.invalid}" required>
+                  </mat-form-field>
+                </div>
               </div>
-</div>
-</div>
+                 
+                 <div class="row justify-content-">
+
+                  <div class="col-6">
+
+                    <mat-form-field appearance="outline">
+                      <mat-label>Enter Password</mat-label>
+                      <input type="password"  [(ngModel)]="userLog.password1"  name="userLog.password" matInput placeholder="Enter Password"
+                      #password="ngModel" [ngClass]="{'is-invalid': f.submitted && password.invalid}" required>
+                    </mat-form-field>
+                  </div>
+                
+                  <div class="col-6">
+
+                    <mat-form-field appearance="outline">
+                      <mat-label>Enter Number Phon</mat-label>
+                      <input type="number"  [(ngModel)]="userLog.phone" name="userLog.phone" matInput placeholder="Enter Phone"
+                      #phon="ngModel" [ngClass]="{'is-invalid': f.submitted && phon.invalid}" required>
+                    </mat-form-field>
+                  </div>
+                 </div>
+                 
+                 <div class="row justify-content-">
+                   
+                  <div class="col-6">
+                     <mat-form-field appearance="outline">
+                       <mat-label>Enter Number Phon</mat-label>
+                       <input type="text"  [(ngModel)]="userLog.city" name="userLog.city"  matInput placeholder="Enter city"
+                       #city="ngModel" [ngClass]="{'is-invalid': f.submitted && city.invalid}" required>
+                      </mat-form-field>
+                    </div>
+
+                     <div class="col-6">
+                       <mat-form-field>
+                         <input matInput [matDatepicker]="picker" matInput placeholder="Choose a date" 
+                         type=date  [(ngModel)]="userLog.date" name="userLog.date" 
+                         #date="ngModel" [ngClass]="{'is-invalid': f.submitted && date.invalid}" required>
+                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                         <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                      </div> 
+                      
+                    </div>
+                  
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Select Category</label>
+                        <select  class="form-control" [(ngModel)]="userLog.gender" name="userLog.gender" #ctg="ngModel"
+                        [ngClass]="{'is-invalid': f.submitted && ctg.invalid}" required>
+                          <option>male</option> 
+                          <option>female</option> 
+                        </select>
+                      </div>
+                    
+
+                      <div class="row justify-content-">
+                        <div class="col-2">
+                          <button type="submit" class="btn btn-outline-success">Sing</button>
+                        </div>
+                      </div>
+                  </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
 
 <div id="carouselExampleFade" class="bg carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">

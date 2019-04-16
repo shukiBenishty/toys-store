@@ -45,6 +45,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //Component
 import { HomeComponent } from './components/home/home.component';
@@ -69,6 +70,7 @@ import { from } from 'rxjs';
 import { ParticlesModule } from 'angular-particle';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NgxPopper } from 'angular-popper';
+import { FitemPipe } from './pipe/fitem.pipe';
 
 
 
@@ -92,7 +94,8 @@ import { NgxPopper } from 'angular-popper';
     EditOrderComponent,
     EditItemsComponent,
     OrderClientComponent,
-    OrderUpdataComponent
+    OrderUpdataComponent,
+    FitemPipe
     
   ],
   imports: [
@@ -141,7 +144,8 @@ import { NgxPopper } from 'angular-popper';
     MatTooltipModule,
     MatTreeModule,
     LayoutModule,
-    NgxPopper
+    NgxPopper,
+    ReactiveFormsModule
     
     
   ],

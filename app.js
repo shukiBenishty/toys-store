@@ -103,10 +103,6 @@ app.post('/sign',(req,res)=>
 })
 
 
-app.get('/id', (req, res) => {
-  res.send(req.user)
-})
-
 
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/fail' }),
@@ -122,7 +118,20 @@ app.post('/login',
 //       res.send(user);})
 // })
 
-//logout יציאה
+app.post('/login',(req,res)=>
+{
+  console.log(req.body)
+  let a={name:req.body.nameSignin,password:req.body.password}
+  console.log(a)
+    // mongoose.model('item').find({_id:req.body.id},function(err,result){ res.send(result)})
+
+    mongoose.model('users').find({name:req.body.nameSignin,password:req.body.password},
+      function(err,user)
+      {
+        console.log(user)
+        res.send(user);
+    })
+})
 
 
 

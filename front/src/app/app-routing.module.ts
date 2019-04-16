@@ -35,9 +35,10 @@ const routes: Routes = [
   {path:'menu_client',component:ManueClientComponent,children:[
         {path:'about',component:AboutComponent},
         {path:'toysitems',component:ToysitemsComponent,children:
-            [{path:':category',component:ToysComponent,children:[
-                {path:':item',component:SpecificItemComponent}]}
-              ]},
+            [{path:':item',component:SpecificItemComponent}]}
+              // {path:':category',component:ToysComponent,children:[
+              //   {path:':item',component:SpecificItemComponent}]}
+              ,
         {path:'list_buy',component:ListBuyComponent},
         {path:'historyorder',component:HistoryOrderComponent}]},
   {path:'manu_worker',component:ManuWorkerComponent,children:[

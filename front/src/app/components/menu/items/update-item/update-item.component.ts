@@ -53,7 +53,7 @@ export class UpdateItemComponent implements OnInit {
     if (FileReader && files && files.length) 
     {
         var fr = new FileReader();
-        fr.onload = function () {$('#imgUp').attr('src', fr.result)}
+        fr.onload = function () {$('#imgUplo').attr('src', fr.result)}
         fr.readAsDataURL(files[0]);
     }
     this.selectedFile = <File>event.target.files[0];

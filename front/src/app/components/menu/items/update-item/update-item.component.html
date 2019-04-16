@@ -1,21 +1,22 @@
-<!--  -->
+
+
   <div class="row justify-content-center" >
-    <div class="col-12">
+      <div class="col-6 bg">
+        <div class='m-4'>
+          <img src="{{img}}" id="imgUplo" class='img-fluid' alt="Responsive image">
+          <input type="file" id="file-up" (change)="changeImage($event)">
 
-      <!-- <img src="{{img}}" id="imgUp"> -->
-      <img src="{{img}}" id="imgUp" class="img-fluid" alt="Responsive image">
-      <input type="file" id="file-upload" (change)="changeImage($event)">
-    </div>
-    
-    <div class="col">
-
+        </div>
+      </div>
+  
+    <div class="col-1">
       <button mat-fab color="primary">  
-        <label for="file-upload" ><i class="material-icons">note_add</i></label>
+        <label for="file-up" ><i class="material-icons">note_add</i></label>
       </button>
     </div>
+  </div>
       
     
-    </div>
 
 <!--  -->
     <div class='row mt-3'>

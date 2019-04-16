@@ -1,0 +1,17 @@
+.loct{
+    position:fixed;
+    right: 95%;
+    top: 90%;
+/* right: 0; */
+z-index: 1;
+
+}
+
+.im{
+    width: 200px;
+    height: 200px;
+    border: 10px,solid,black;
+}
+input[type="file"] {
+    display: none;
+}

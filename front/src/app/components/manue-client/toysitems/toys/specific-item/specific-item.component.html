@@ -1,15 +1,24 @@
-<div class="card Large">
-    
-      <div class="card-image">
-      <img src={{thisItem.url}}>
-      <span class="card-title">}}</span>
-    </div>
-    
-    <div class="card-content">
-      <h6>Price: {{thisItem.price}}</h6>
-           <p>{{thisItem.description}}</p>
-    </div>
+
+<div class="row justify-content-center">
+  <div class="col-11 mt-5">
+      <div class="card border-success mb-3" style="max-width: 18rem;">
+          <!-- <div class="card-header bg-transparent border-success"><h5 class="card-title">{{thisItem.name}}</h5></div> -->
+          <div class="card-body text-success">
+            <h5 class="card-title">{{thisItem.name}}</h5>
+            <div class="card-text">
+                <div class="cont">
+                    <img class="card-img-top " src={{thisItem.url}} alt="Card image cap">
+                </div>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent border-success">Description: {{thisItem.description}}</div>
+          <div class="card-footer bg-transparent border-success">Price: {{thisItem.price}}</div>
+          <!-- <div class="card-footer bg-transparent border-success">Footer</div> -->
+        </div>
+   
+  </div>
 </div>
+
 
 
 
