@@ -63,12 +63,8 @@ export class HomeComponent implements OnInit {
     {
       $('#login').modal('hide')
       console.log(data)
-<<<<<<< HEAD
       this.eventService.addUser(data);
       $('#login').modal('hide')
-=======
-      this.eventService.addUser(data[0]);
->>>>>>> bdf46a6fc5be8ae4e409aed142e2d36bfc7507e7
       console.log(data)
       switch (data["type"]) {
         case 'meneger':
