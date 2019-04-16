@@ -48,12 +48,14 @@ passport.use(
 );
 
 
-passport.use( new LocalStrategy( {
+passport.use(new LocalStrategy({
     usernameField: 'nameSignin',
-    passwordField: 'passwordSign',
+    passwordField: 'password',
     session: true
-    },
-    function(username, password, done) {
+  },
+  function(username, password, done) {
+      console.log("local");
+      
         mongoose.model('users').findOne({name:username, password:password} , function (err, user) {
         if (err) { return done(err); }
         if (!user) { return done(null, false); }

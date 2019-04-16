@@ -3,13 +3,20 @@ var Schema = mongoose.Schema;
 
 
 var user=new Schema({
-    username: String,
+    username: { type: String, required: true, unique: true, index: true },
+    password: { type: String, required: true },
+    contacts: {type: [ {type: Schema.Types.ObjectId, ref: 'User', default: [] }] },
+    groups: [ {type: Schema.Types.ObjectId, ref: 'Group',  default: [] }],
+    picture: { type: String, default: "" },
+    admin: { type: Boolean, default: false, required: true },
+    online: { type: Boolean, default: false },
+    createdAt: Date,
+    updatedAt: Date,
     googleId: String,
     thumbnail: String,
     type:String,
     name:String,
-    family:String,
-    password:String,    
+    family:String,   
     email:String,
     city :String,
     gender:String,
