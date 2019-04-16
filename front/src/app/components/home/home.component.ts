@@ -61,6 +61,8 @@ export class HomeComponent implements OnInit {
     console.log('log')
     this.serchService.postLogin(this.userSign).subscribe(data=> 
     {
+      console.log(data)
+      this.eventService.addUser(data[0]);
       $('#login').modal('hide')
       console.log(data)
       switch (data[0].type) {
@@ -85,33 +87,23 @@ export class HomeComponent implements OnInit {
   this.userSign.nameSignin='dani'
   this.userSign.passwordSign='12346'
   
-  this.serchService.postLogin(this.userSign).subscribe(data=>
-    {
-      console.log(data)})
-      this.router.navigate(['menu']) 
+  this.login()
  }
  worker()
  {
-  this.userSign.nameSignin='dadaaaa'
+  this.userSign.nameSignin='dada'
   this.userSign.passwordSign='4343'
   
-  this.serchService.postLogin(this.userSign).subscribe(data=>
-    {
-      console.log(data)})
-      this.router.navigate(['manu_worker']) 
+  this.login()
  }
  client()
  {
-  // this.userSign.nameSignin='lolo'
-  // this.userSign.passwordSign='12346'
- 
-  this.userSign.nameSignin='Chelsey Dietrich'
+  this.userSign.nameSignin='lolo'
   this.userSign.passwordSign='12346'
-  this.serchService.postLogin(this.userSign).subscribe(user=>
-    {
-    this.eventService.addUser(user)
-    this.router.navigate(['menu_client']) 
-    })
+ 
+  // this.userSign.nameSignin='Chelsey Dietrich'
+  // this.userSign.passwordSign='12346'
+  this.login()
   }
 
 

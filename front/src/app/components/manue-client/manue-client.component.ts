@@ -21,7 +21,7 @@ export class ManueClientComponent implements OnInit {
 
     eventService.getListBuy().subscribe(data=>this.addItem(data))
 
-    this.eventService.getUser().subscribe(result=>{this.client=result[0]})
+    this.eventService.getUser().subscribe(result=>{this.client=result})
   
    }
 

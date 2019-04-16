@@ -135,7 +135,7 @@ app.post('/login',(req,res)=>
   console.log(a)
     // mongoose.model('item').find({_id:req.body.id},function(err,result){ res.send(result)})
 
-    mongoose.model('users').find({name:req.body.nameSignin,password:req.body.password},
+    mongoose.model('users').find({name:req.body.nameSignin,password:req.body.passwordSign},
       function(err,user)
       {
         console.log(user)

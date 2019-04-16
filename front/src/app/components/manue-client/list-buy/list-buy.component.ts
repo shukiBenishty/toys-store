@@ -27,10 +27,7 @@ export class ListBuyComponent implements OnInit {
     
     console.log(this.listBuy)
     this.sum()
-    this.eventService.getUser().subscribe(result=>{this.client=result[0]
-      console.log(this.client)
-    
-    })
+    this.eventService.getUser().subscribe(result=>{this.client=result})
   }  
   
   
@@ -106,7 +103,7 @@ this.today = mm + '/' + dd + '/' + yyyy;
     }
     console.log(order)
     
-    this.serchService.addOrder(order).subscribe(data=>{})
+    this.serchService.addOrder(order).subscribe(data=>{this.listBuy=[]})
   }
 
 }

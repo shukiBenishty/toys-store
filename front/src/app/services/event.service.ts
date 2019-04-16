@@ -9,15 +9,14 @@ export class EventService {
   constructor() { }
 
 
-  ngOnInit() {
-  
-        
-  }
+  ngOnInit() { }
 
-  private listBuy$ = new BehaviorSubject<any>(0);
-  private user$ = new BehaviorSubject<any>(0);
+  private listBuy$ = new BehaviorSubject<any>([]);
+  private user$ = new BehaviorSubject<any>([]);
 
   addListBuy(myChange:any) {
+
+    
       this.listBuy$.next(myChange);
   }
 
