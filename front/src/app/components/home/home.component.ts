@@ -58,7 +58,13 @@ export class HomeComponent implements OnInit {
 
   
 
-    
+  // gmail(){
+  //   window.gmailAuth = (user) => {
+      
+  //   };
+
+  //   this.serchService.
+  // }
   
   login()
   {
